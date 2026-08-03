@@ -1,0 +1,53 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyd
+*.so
+.pytest_cache/
+.mypy_cache/
+
+# IDE
+.idea/
+.vscode/
+.DS_Store
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Datasets
+datasets/raw/*
+datasets/processed/*
+!datasets/raw/.gitkeep
+!datasets/processed/.gitkeep
+
+# Model checkpoints and large files
+outputs/checkpoints/
+*.pt
+*.pth
+*.ckpt
+*.pkl
+*.joblib
+
+# Logs and intermediate outputs
+outputs/logs/
+outputs/reports/
+outputs/revision_round2/
+outputs/revision_round3/
+outputs/revision_tables/
+
+# Paper and review files
+paper/
+*.docx
+*.doc
+*.pdf
+
+# Proof-stage files
+mdpi_figure_redraw/
+mdpi_figure_redraw.zip
+
+# Temporary files
+*.tmp
+*.temp
+~$*
