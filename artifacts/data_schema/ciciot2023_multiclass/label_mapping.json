@@ -1,0 +1,10 @@
+{
+  "Benign": 0,
+  "Brute Force": 1,
+  "DDoS": 2,
+  "DoS": 3,
+  "Mirai": 4,
+  "Recon": 5,
+  "Spoofing": 6,
+  "Web-Based": 7
+}

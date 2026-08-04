@@ -51,3 +51,14 @@ mdpi_figure_redraw.zip
 *.tmp
 *.temp
 ~$*
+
+# Curated repository artifacts remain eligible for version control
+!artifacts/
+!artifacts/data_schema/
+!artifacts/data_schema/**
+!results/
+!results/**
+!docs/
+!docs/**
+!configs/
+!configs/**

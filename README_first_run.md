@@ -1,95 +1,56 @@
-# FT-Transformer IoT/NIDS 预处理 Starter（PyCharm 直接运行版）
+# First preprocessing run
 
-## 1. 当前阶段目标
-这一版先解决两件事：
+This is the short preprocessing guide. Start with the formal project overview in [README.md](README.md), and use [docs/REPRODUCIBILITY.md](docs/REPRODUCIBILITY.md) for the complete experiment order.
 
-1. 把 **CICIoT2023** 下载并放到正确目录；
-2. 先把 **数据预处理流程跑通**，生成：
-   - `train.csv`
-   - `val.csv`
-   - `test.csv`
-   - `scaler.joblib`
-   - `feature_columns.json`
-   - `label_mapping.json`
+## 1. Prepare the environment
 
-## 2. 目录结构
+Open the repository folder in PyCharm, create or select a Python interpreter, and install `requirements.txt`. For full CUDA training, install the PyTorch build appropriate for the training machine.
+
+## 2. Place raw datasets
+
+The default case-sensitive layout is:
+
 ```text
-ft_transformer_iot_preprocess_starter/
-├─ config.py
-├─ requirements.txt
-├─ README_first_run.md
-├─ utils/
-│  ├─ logger_utils.py
-│  └─ data_utils.py
-├─ preprocessing/
-│  ├─ 00_check_raw_data.py
-│  ├─ 01_build_ciciot2023_binary.py
-│  ├─ 02_build_ciciot2023_7class.py
-│  ├─ 03_build_ciciomt2024_binary.py
-│  └─ 04_align_cross_dataset_binary.py
-├─ datasets/
-│  ├─ raw/
-│  │  ├─ CICIoT2023/
-│  │  │  └─ CSV/
-│  │  └─ CICIoMT2024/
-│  │     └─ WiFi_and_MQTT/attacks/csv/
-│  │        ├─ train/
-│  │        └─ test/
-│  └─ processed/
-└─ outputs/
-   ├─ logs/
-   └─ artifacts/
+datasets/raw/
+├── ciciot2023/
+│   └── CSV/
+└── ciciomt2024/
+    └── WiFi_and_MQTT/
+        └── attacks/
+            └── csv/
+                ├── train/
+                └── test/
 ```
 
-## 3. 你现在先做什么
-### 第一步：先把 CICIoT2023 的 CSV 文件放到这里
-```text
-datasets/raw/CICIoT2023/CSV/
-```
+Alternatively, set `FT_IOT_RAW_DATA_DIR` to the directory that contains `ciciot2023/` and `ciciomt2024/`. Raw and processed datasets are intentionally ignored by Git.
 
-### 第二步：在 PyCharm 里先运行
-```text
-preprocessing/00_check_raw_data.py
-```
-如果成功，你会看到：
-- 找到多少个 CSV 文件
-- 示例文件列名
-- 自动识别到的标签列
+## 3. Check the files
 
-### 第三步：运行二分类预处理
-```text
-preprocessing/01_build_ciciot2023_binary.py
-```
-如果成功，你会在：
+Open `preprocessing/00_check_raw_data.py` in PyCharm and click the green triangle. The script reports the discovered CSV count, a representative schema, and the detected label column without training a model.
+
+## 4. Build CICIoT2023 binary data
+
+Open `preprocessing/01_build_ciciot2023_binary.py` and click the green triangle. Its generated data files are written to:
+
 ```text
 datasets/processed/ciciot2023_binary/
 ```
-看到预处理后的结果文件。
 
-## 4. 为什么先跑二分类
-因为二分类最稳，最适合先验证你的环境、路径、依赖、编码、标签映射是否都正确。  
-等二分类稳了，再跑 7 类分类和跨数据集实验。
+The generated directory can include train/validation/test CSV files, a scaler, feature columns, label mapping, and metadata. These local products are not committed; only selected schema JSON files are archived under `artifacts/data_schema/`.
 
-## 5. 调试模式说明
-`config.py` 里默认：
-```python
-FAST_DEBUG_MODE = True[raw](../nids_paper_project/data/raw)
+## 5. Continue to training or other tasks
+
+- Binary training: `trainers/train_ft_binary.py`
+- Binary evaluation: `trainers/evaluate_binary.py`
+- Multiclass preprocessing: `preprocessing/02_build_ciciot2023_7class.py`
+- CICIoMT2024 preprocessing: `preprocessing/03_build_ciciomt2024_binary.py`
+- Cross-dataset alignment: `preprocessing/04_align_cross_dataset_binary.py`
+
+`FAST_DEBUG_MODE` in `config.py` controls whether preprocessing uses a reduced subset. Confirm its value before any formal experiment. Existing archived results are historical outputs and are not regenerated merely by following this first-run guide.
+
+Terminal alternative:
+
+```bash
+python preprocessing/00_check_raw_data.py
+python preprocessing/01_build_ciciot2023_binary.py
 ```
-这表示：
-- 只读取部分文件
-- 每类只保留一定样本
-- 目的：先确认流程跑通，不让你一上来就把电脑跑崩
-
-等你确认没问题后，再改成：
-```python
-FAST_DEBUG_MODE = False
-```
-
-## 6. 当前这版还没做什么
-这一版还没开始训练 FT-Transformer。  
-我们下一步会接着写：
-- FT-Transformer 模型文件
-- dataloader
-- 训练脚本
-- 指标与画图脚本
-- SHAP 分析脚本

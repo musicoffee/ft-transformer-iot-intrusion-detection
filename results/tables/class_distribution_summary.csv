@@ -1,0 +1,45 @@
+﻿Task/Dataset,Split,Label Column,Class/Label,Samples
+CICIoT2023 Binary,Train,label_id,0,210000
+CICIoT2023 Binary,Train,label_id,1,210000
+CICIoT2023 Binary,Validation,label_id,0,30000
+CICIoT2023 Binary,Validation,label_id,1,30000
+CICIoT2023 Binary,Test,label_id,0,60000
+CICIoT2023 Binary,Test,label_id,1,60000
+CICIoMT2024 Binary,Train,label_id,0,5918533
+CICIoMT2024 Binary,Train,label_id,1,163822
+CICIoMT2024 Binary,Validation,label_id,0,1044447
+CICIoMT2024 Binary,Validation,label_id,1,28910
+CICIoMT2024 Binary,Test,label_id,0,1574510
+CICIoMT2024 Binary,Test,label_id,1,37607
+CICIoT2023 Multi-class,Train,label_id,0,56000
+CICIoT2023 Multi-class,Train,label_id,1,9144
+CICIoT2023 Multi-class,Train,label_id,2,56000
+CICIoT2023 Multi-class,Train,label_id,3,56000
+CICIoT2023 Multi-class,Train,label_id,4,56000
+CICIoT2023 Multi-class,Train,label_id,5,46383
+CICIoT2023 Multi-class,Train,label_id,6,56000
+CICIoT2023 Multi-class,Train,label_id,7,5821
+CICIoT2023 Multi-class,Validation,label_id,0,8000
+CICIoT2023 Multi-class,Validation,label_id,1,1307
+CICIoT2023 Multi-class,Validation,label_id,2,8000
+CICIoT2023 Multi-class,Validation,label_id,3,8000
+CICIoT2023 Multi-class,Validation,label_id,4,8000
+CICIoT2023 Multi-class,Validation,label_id,5,6626
+CICIoT2023 Multi-class,Validation,label_id,6,8000
+CICIoT2023 Multi-class,Validation,label_id,7,832
+CICIoT2023 Multi-class,Test,label_id,0,16000
+CICIoT2023 Multi-class,Test,label_id,1,2613
+CICIoT2023 Multi-class,Test,label_id,2,16000
+CICIoT2023 Multi-class,Test,label_id,3,16000
+CICIoT2023 Multi-class,Test,label_id,4,16000
+CICIoT2023 Multi-class,Test,label_id,5,13253
+CICIoT2023 Multi-class,Test,label_id,6,16000
+CICIoT2023 Multi-class,Test,label_id,7,1663
+Cross-Dataset Aligned Binary,Main Train Aligned,label_id,0,210000
+Cross-Dataset Aligned Binary,Main Train Aligned,label_id,1,210000
+Cross-Dataset Aligned Binary,Main Validation Aligned,label_id,0,30000
+Cross-Dataset Aligned Binary,Main Validation Aligned,label_id,1,30000
+Cross-Dataset Aligned Binary,Main Test Aligned,label_id,0,60000
+Cross-Dataset Aligned Binary,Main Test Aligned,label_id,1,60000
+Cross-Dataset Aligned Binary,External Test Aligned,label_id,0,1574510
+Cross-Dataset Aligned Binary,External Test Aligned,label_id,1,37607

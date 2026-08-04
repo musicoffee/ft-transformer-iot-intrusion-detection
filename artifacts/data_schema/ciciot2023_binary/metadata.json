@@ -1,0 +1,29 @@
+{
+  "dataset_name": "CICIoT2023 Binary",
+  "fast_debug_mode": false,
+  "formal_target_samples_per_class": 300000,
+  "train_shape": [
+    420000,
+    42
+  ],
+  "val_shape": [
+    60000,
+    42
+  ],
+  "test_shape": [
+    120000,
+    42
+  ],
+  "train_distribution": {
+    "attack": 210000,
+    "benign": 210000
+  },
+  "val_distribution": {
+    "attack": 30000,
+    "benign": 30000
+  },
+  "test_distribution": {
+    "attack": 60000,
+    "benign": 60000
+  }
+}

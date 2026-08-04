@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the associated article."
+title: "FT-Transformer-Based IoT Network Attack Detection and Cross-Dataset Generalization Analysis"
+type: software
+authors:
+  - family-names: Li
+    given-names: Fapeng
+  - family-names: Tao
+    given-names: Yatong
+  - family-names: Qu
+    given-names: Leilei
+url: "https://github.com/musicoffee/ft-transformer-iot-intrusion-detection"
+repository-code: "https://github.com/musicoffee/ft-transformer-iot-intrusion-detection"
+date-released: 2026-08-03
+preferred-citation:
+  type: article
+  title: "FT-Transformer-Based IoT Network Attack Detection and Cross-Dataset Generalization Analysis"
+  authors:
+    - family-names: Li
+      given-names: Fapeng
+    - family-names: Tao
+      given-names: Yatong
+    - family-names: Qu
+      given-names: Leilei
+  journal: Electronics
+  year: 2026
+  volume: 15
+  issue: 12
+  doi: 10.3390/electronics15122516

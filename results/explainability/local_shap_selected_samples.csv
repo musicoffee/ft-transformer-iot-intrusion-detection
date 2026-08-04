@@ -1,0 +1,3 @@
+﻿sample_type,test_index,true_label,pred_label,prob_attack
+correctly_classified_attack,22,0,0,0.9999995231628418
+misclassified_attack_to_benign,102515,0,1,0.001580826472491026

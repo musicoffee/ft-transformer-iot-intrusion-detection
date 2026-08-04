@@ -1,0 +1,38 @@
+{
+  "experiment": "historical_domain_aligned_ft_transformer_coral",
+  "status": "historical_original_uncorrected_not_rerun",
+  "random_state": 42,
+  "model": {
+    "implementation": "file-local FTTransformerWithRepresentation",
+    "fully_reuses_main_ft_transformer": false,
+    "d_token": 64,
+    "n_heads": 4,
+    "n_layers": 4,
+    "dim_feedforward": 128,
+    "dropout": 0.1
+  },
+  "training": {
+    "batch_size": 4096,
+    "epochs": 15,
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "early_stopping_patience": 4,
+    "max_source_train_samples": 200000,
+    "max_source_validation_samples": 80000,
+    "max_source_test_samples": 120000,
+    "max_target_adaptation_samples": 200000,
+    "max_target_test_samples": null,
+    "coral_lambdas": [0.05]
+  },
+  "validity_notes": {
+    "target_labels_used_in_gradient": false,
+    "target_labels_used_for_stratified_split_or_sampling": true,
+    "coral_loss_may_include_extra_d_squared_division": true,
+    "corrected_coral_rerun": false
+  },
+  "evidence": [
+    "analysis/revision_13_domain_aligned_ft_coral.py",
+    "results/domain_alignment/original/domain_aligned_ft_transformer_results.json",
+    "results/domain_alignment/original/domain_aligned_ft_transformer_results.csv"
+  ]
+}

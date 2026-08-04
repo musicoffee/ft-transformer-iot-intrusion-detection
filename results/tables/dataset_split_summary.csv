@@ -1,0 +1,14 @@
+﻿Task/Dataset,Split,File,Samples,Label Column
+CICIoT2023 Binary,Train,datasets\processed\ciciot2023_binary\train.csv,420000,label_id
+CICIoT2023 Binary,Validation,datasets\processed\ciciot2023_binary\val.csv,60000,label_id
+CICIoT2023 Binary,Test,datasets\processed\ciciot2023_binary\test.csv,120000,label_id
+CICIoMT2024 Binary,Train,datasets\processed\ciciomt2024_binary\train.csv,6082355,label_id
+CICIoMT2024 Binary,Validation,datasets\processed\ciciomt2024_binary\val.csv,1073357,label_id
+CICIoMT2024 Binary,Test,datasets\processed\ciciomt2024_binary\test.csv,1612117,label_id
+CICIoT2023 Multi-class,Train,datasets\processed\ciciot2023_7class\train.csv,341348,label_id
+CICIoT2023 Multi-class,Validation,datasets\processed\ciciot2023_7class\val.csv,48765,label_id
+CICIoT2023 Multi-class,Test,datasets\processed\ciciot2023_7class\test.csv,97529,label_id
+Cross-Dataset Aligned Binary,Main Train Aligned,datasets\processed\cross_dataset_aligned_binary\main_train_aligned.csv,420000,label_id
+Cross-Dataset Aligned Binary,Main Validation Aligned,datasets\processed\cross_dataset_aligned_binary\main_val_aligned.csv,60000,label_id
+Cross-Dataset Aligned Binary,Main Test Aligned,datasets\processed\cross_dataset_aligned_binary\main_test_aligned.csv,120000,label_id
+Cross-Dataset Aligned Binary,External Test Aligned,datasets\processed\cross_dataset_aligned_binary\external_test_aligned.csv,1612117,label_id

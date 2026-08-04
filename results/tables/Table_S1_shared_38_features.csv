@@ -1,0 +1,39 @@
+﻿No.,Shared Feature
+1,ARP
+2,AVG
+3,DHCP
+4,DNS
+5,HTTP
+6,HTTPS
+7,Header_Length
+8,IAT
+9,ICMP
+10,IGMP
+11,IPv
+12,IRC
+13,LLC
+14,Max
+15,Min
+16,Number
+17,Protocol Type
+18,Rate
+19,SMTP
+20,SSH
+21,Std
+22,TCP
+23,Telnet
+24,Tot size
+25,Tot sum
+26,UDP
+27,Variance
+28,ack_count
+29,ack_flag_number
+30,cwr_flag_number
+31,ece_flag_number
+32,fin_count
+33,fin_flag_number
+34,psh_flag_number
+35,rst_count
+36,rst_flag_number
+37,syn_count
+38,syn_flag_number
