@@ -1,0 +1,51 @@
+{
+  "settings": {
+    "use_val_in_train": true,
+    "max_train_samples": 300000,
+    "max_main_test_samples": null,
+    "max_external_test_samples": null,
+    "shared_feature_count": 38,
+    "label_column": "label_id",
+    "attack_label_id": 0,
+    "label_mapping": {
+      "attack": 0,
+      "benign": 1
+    }
+  },
+  "rf": {
+    "main_aligned_test": {
+      "accuracy": 0.9817333333333333,
+      "precision_attack": 0.9967347219357944,
+      "recall_attack": 0.9666333333333333,
+      "f1_attack": 0.9814532778285443,
+      "roc_auc_attack": 0.9951188841666666,
+      "pr_auc_attack": 0.9962575000899314
+    },
+    "external_test": {
+      "accuracy": 0.9821197841099623,
+      "precision_attack": 0.9833585694173685,
+      "recall_attack": 0.9985919428901691,
+      "f1_attack": 0.9909167139081575,
+      "roc_auc_attack": 0.9572044680356353,
+      "pr_auc_attack": 0.9981671817943869
+    }
+  },
+  "xgboost": {
+    "main_aligned_test": {
+      "accuracy": 0.9824416666666667,
+      "precision_attack": 0.9963646964007065,
+      "recall_attack": 0.9684166666666667,
+      "f1_attack": 0.9821919081788754,
+      "roc_auc_attack": 0.9956709172222222,
+      "pr_auc_attack": 0.9967778313548536
+    },
+    "external_test": {
+      "accuracy": 0.9804933512890194,
+      "precision_attack": 0.9811027559857901,
+      "recall_attack": 0.9992746949844714,
+      "f1_attack": 0.9901053526496114,
+      "roc_auc_attack": 0.8850069894341235,
+      "pr_auc_attack": 0.9954187479832654
+    }
+  }
+}

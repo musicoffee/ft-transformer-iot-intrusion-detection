@@ -1,0 +1,47 @@
+{
+  "dataset_name": "CICIoT2023 7-class",
+  "fast_debug_mode": false,
+  "formal_target_samples_per_class_7class": 80000,
+  "train_shape": [
+    341348,
+    42
+  ],
+  "val_shape": [
+    48765,
+    42
+  ],
+  "test_shape": [
+    97529,
+    42
+  ],
+  "train_distribution": {
+    "Benign": 56000,
+    "Brute Force": 9144,
+    "DDoS": 56000,
+    "DoS": 56000,
+    "Mirai": 56000,
+    "Recon": 46383,
+    "Spoofing": 56000,
+    "Web-Based": 5821
+  },
+  "val_distribution": {
+    "Benign": 8000,
+    "Brute Force": 1307,
+    "DDoS": 8000,
+    "DoS": 8000,
+    "Mirai": 8000,
+    "Recon": 6626,
+    "Spoofing": 8000,
+    "Web-Based": 832
+  },
+  "test_distribution": {
+    "Benign": 16000,
+    "Brute Force": 2613,
+    "DDoS": 16000,
+    "DoS": 16000,
+    "Mirai": 16000,
+    "Recon": 13253,
+    "Spoofing": 16000,
+    "Web-Based": 1663
+  }
+}

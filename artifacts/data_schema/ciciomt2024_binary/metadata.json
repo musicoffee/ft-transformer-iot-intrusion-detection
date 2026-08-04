@@ -1,0 +1,28 @@
+{
+  "dataset_name": "CICIoMT2024 Binary",
+  "fast_debug_mode": false,
+  "train_shape": [
+    6082355,
+    48
+  ],
+  "val_shape": [
+    1073357,
+    48
+  ],
+  "test_shape": [
+    1612117,
+    48
+  ],
+  "train_distribution": {
+    "attack": 5918533,
+    "benign": 163822
+  },
+  "val_distribution": {
+    "attack": 1044447,
+    "benign": 28910
+  },
+  "test_distribution": {
+    "attack": 1574510,
+    "benign": 37607
+  }
+}

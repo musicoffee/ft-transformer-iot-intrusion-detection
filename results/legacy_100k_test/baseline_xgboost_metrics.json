@@ -1,0 +1,15 @@
+{
+  "accuracy": 0.98216,
+  "precision_attack": 0.9962784003289812,
+  "recall_attack": 0.9679765067822682,
+  "f1_attack": 0.9819235601669841,
+  "roc_auc_attack": 0.996062587082938,
+  "pr_auc_attack": 0.9969901994179102,
+  "max_train_samples": 200000,
+  "max_test_samples": 100000,
+  "attack_label_id": 0,
+  "label_mapping": {
+    "attack": 0,
+    "benign": 1
+  }
+}

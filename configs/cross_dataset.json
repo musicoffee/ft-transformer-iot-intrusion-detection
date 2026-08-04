@@ -1,0 +1,32 @@
+{
+  "experiment": "ciciot2023_to_ciciomt2024_aligned_38_features",
+  "status": "historical_not_rerun",
+  "random_state": 42,
+  "shared_feature_count": 38,
+  "num_classes": 2,
+  "model": {
+    "d_token": 64,
+    "n_heads": 8,
+    "n_layers": 4,
+    "dim_feedforward": 128,
+    "dropout": 0.1
+  },
+  "training": {
+    "batch_size": 2048,
+    "epochs": 15,
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "early_stopping_patience": 4
+  },
+  "preprocessing": {
+    "source_scaler_fit": "source training split",
+    "target_scaler_fit": "target training split",
+    "strict_source_only_zero_shot": false
+  },
+  "evidence": [
+    "analysis/run_cross_dataset.py",
+    "preprocessing/04_align_cross_dataset_binary.py",
+    "artifacts/data_schema/cross_dataset/shared_feature_columns.json",
+    "results/cross_dataset/ft_binary_cross_dataset_metrics.json"
+  ]
+}

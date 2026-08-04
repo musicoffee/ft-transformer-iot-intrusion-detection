@@ -1,0 +1,19 @@
+{
+  "main_aligned_test": {
+    "accuracy": 0.979725,
+    "precision_attack": 0.9965668938152333,
+    "recall_attack": 0.9627666666666667,
+    "f1_attack": 0.9793752384181749,
+    "roc_auc_attack": 0.9932766772222222,
+    "pr_auc_attack": 0.9951845351225922
+  },
+  "external_aligned_test": {
+    "accuracy": 0.9859873694030892,
+    "precision_attack": 0.9881725300719714,
+    "recall_attack": 0.9975929019186922,
+    "f1_attack": 0.992860371108997,
+    "roc_auc_attack": 0.9872920685820201,
+    "pr_auc_attack": 0.9996713419375858
+  },
+  "shared_feature_count": 38
+}

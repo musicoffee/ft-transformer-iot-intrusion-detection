@@ -1,0 +1,36 @@
+{
+  "experiment": "main_ciciot2023_multiclass",
+  "status": "historical_not_rerun",
+  "class_definition": "7 attack families plus Benign, 8 classes in total",
+  "random_state": 42,
+  "num_features": 39,
+  "num_classes": 8,
+  "model": {
+    "d_token": 64,
+    "n_heads": 8,
+    "n_layers": 4,
+    "dim_feedforward": 128,
+    "dropout": 0.1
+  },
+  "training": {
+    "batch_size": 2048,
+    "epochs": 20,
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "early_stopping_patience": 5,
+    "max_train_samples": null,
+    "max_val_samples": null,
+    "class_weighting": false
+  },
+  "split_samples": {
+    "train": 341348,
+    "validation": 48765,
+    "test": 97529
+  },
+  "evidence": [
+    "trainers/train_ft_multiclass.py",
+    "artifacts/data_schema/ciciot2023_multiclass/metadata.json",
+    "artifacts/data_schema/ciciot2023_multiclass/feature_columns.json",
+    "artifacts/data_schema/ciciot2023_multiclass/label_mapping.json"
+  ]
+}

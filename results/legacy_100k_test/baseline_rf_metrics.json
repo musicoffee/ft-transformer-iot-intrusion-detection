@@ -1,0 +1,10 @@
+{
+  "accuracy": 0.98155,
+  "precision_attack": 0.9970924238050068,
+  "recall_attack": 0.9659588069600655,
+  "f1_attack": 0.9812787287800225,
+  "roc_auc_attack": 0.995596580677316,
+  "pr_auc_attack": 0.9965571428687415,
+  "max_train_samples": 200000,
+  "max_test_samples": 100000
+}

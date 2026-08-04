@@ -1,0 +1,11 @@
+numpy==2.2.2
+pandas==2.2.3
+scikit-learn==1.6.1
+matplotlib
+torch==2.7.0
+tqdm
+joblib
+xgboost==3.0.3
+scipy
+shap
+pytorch-tabnet

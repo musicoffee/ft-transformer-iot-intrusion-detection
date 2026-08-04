@@ -1,0 +1,36 @@
+{
+  "experiment": "main_ciciot2023_binary",
+  "status": "historical_not_rerun",
+  "random_state": 42,
+  "num_features": 39,
+  "num_classes": 2,
+  "model": {
+    "d_token": 64,
+    "n_heads": 8,
+    "n_layers": 4,
+    "dim_feedforward": 128,
+    "dropout": 0.1
+  },
+  "training": {
+    "batch_size": 2048,
+    "epochs": 20,
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "early_stopping_patience": 5,
+    "max_train_samples": null,
+    "max_val_samples": null
+  },
+  "split_samples": {
+    "train": 420000,
+    "validation": 60000,
+    "test": 120000
+  },
+  "checkpoint_model_config_inspected": true,
+  "evidence": [
+    "trainers/train_ft_binary.py",
+    "models/ft_transformer.py",
+    "artifacts/data_schema/ciciot2023_binary/metadata.json",
+    "artifacts/data_schema/ciciot2023_binary/feature_columns.json",
+    "historical outputs/checkpoints/ft_binary_best.pt model_config (checkpoint not distributed)"
+  ]
+}
