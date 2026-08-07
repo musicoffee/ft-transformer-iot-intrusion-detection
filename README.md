@@ -20,6 +20,44 @@
 
 数据集来源和本地目录结构见 [docs/DATASETS.md](docs/DATASETS.md)。
 
+## 论文完整主线与三轮修订后的证据链
+
+下面的流程图按“研究问题、主实验、二审补强、三审补强、最终结论”组织论文。它反映的是最终发表版本和仓库现有证据边界，不把 FT-Transformer 描述成新架构，也不把某一个外部测试结果扩大为普遍泛化能力。
+
+```mermaid
+flowchart TD
+    A["研究问题<br/>FT-Transformer 能否检测 IoT 攻击<br/>并在数据分布变化时保持有效性"] --> B["主数据集 CICIoT2023<br/>39 个输入特征"]
+    B --> C["FT-Transformer 主模型<br/>数值特征 token 化 + CLS + Transformer Encoder"]
+    C --> D1["二分类<br/>Attack / Benign<br/>Accuracy 0.980675<br/>ROC-AUC 0.995014"]
+    C --> D2["8 类分类<br/>7 个攻击族 + Benign<br/>Macro-F1 0.724006"]
+    C --> D3["补充证据<br/>RF / XGBoost 对比<br/>McNemar + SHAP + 消融"]
+
+    D1 --> E["初始跨数据集问题<br/>CICIoT2023 训练<br/>CICIoMT2024 外部测试"]
+    E --> P1["协议 1：38 维共享特征对齐<br/>受控且一致的特征空间<br/>FT 外部 ROC-AUC 0.987292"]
+
+    P1 --> R2["第二轮审稿质疑<br/>人工特征交集不等于普遍泛化<br/>传统基线不足，实验深度不够"]
+    R2 --> M["增加现代基线<br/>MLP / TabNet / TabTransformer-style"]
+    R2 --> P2["协议 2：92 维特征并集<br/>缺失值填 0 + 缺失指示变量<br/>FT 外部 ROC-AUC 0.527226"]
+    R2 --> P3["协议 3：标准化 NetFlow<br/>NF-ToN-IoT → NF-BoT-IoT<br/>10 个共同数值特征<br/>FT 外部 ROC-AUC 0.785781"]
+
+    M --> R3["第三轮审稿质疑<br/>三种协议必须进入方法部分<br/>还需回答怎样训练才能提高跨域鲁棒性"]
+    P2 --> R3
+    P3 --> R3
+    R3 --> S34["Section 3.4<br/>统一说明三种协议的动机、假设、<br/>特征空间构造和评估目标"]
+    R3 --> CORAL["Section 3.5 + Table 13<br/>源域监督分类 + 无标签目标域 CORAL 对齐"]
+    CORAL --> C1["CIC 目标域 ROC-AUC<br/>0.914362 → 0.989185"]
+    CORAL --> C2["NetFlow 目标域 ROC-AUC<br/>0.725706 → 0.777260"]
+
+    S34 --> F["最终结论"]
+    C1 --> F
+    C2 --> F
+    F --> F1["FT-Transformer 是有竞争力、可复现的<br/>IoT 表格深度学习基线"]
+    F --> F2["部分受控外部验证中更稳<br/>但 92 维负面结果说明优势不普遍"]
+    F --> F3["有针对性的表示对齐可能有帮助<br/>但 CORAL 结果是初步历史证据，仍需严格复验"]
+```
+
+这条主线最重要的变化是：论文不再声称“FT-Transformer 天然具有普遍跨数据集泛化能力”，而是通过三种协议展示其适用条件和失败边界；第三轮修订进一步说明，跨域鲁棒性不仅取决于分类器结构，也与训练目标和表示对齐策略有关。仓库对 CORAL 实现、目标域数据使用方式和结果可比性的审计见 [docs/LIMITATIONS.md](docs/LIMITATIONS.md)。
+
 ## 模型
 
 ### 论文贡献与模型定位
@@ -229,6 +267,44 @@ This repository studies whether an FT-Transformer can detect malicious IoT netwo
 - Historical CORAL domain-alignment experiments, retained with explicit caveats.
 
 Dataset sources and expected local layout are documented in [docs/DATASETS.md](docs/DATASETS.md).
+
+## Complete paper storyline and post-review evidence chain
+
+The diagram below organizes the final paper as research question, primary experiments, second-round additions, third-round additions, and the bounded final claim. It reflects the published manuscript and the evidence currently preserved in this repository; it neither presents FT-Transformer as a newly invented backbone nor turns one favorable external test into a universal generalization claim.
+
+```mermaid
+flowchart TD
+    A["Research question<br/>Can FT-Transformer detect IoT attacks<br/>and remain effective under distribution shift?"] --> B["Primary dataset: CICIoT2023<br/>39 input features"]
+    B --> C["Main FT-Transformer<br/>numerical feature tokens + CLS + Transformer Encoder"]
+    C --> D1["Binary task<br/>Attack / Benign<br/>Accuracy 0.980675<br/>ROC-AUC 0.995014"]
+    C --> D2["Eight-class task<br/>seven attack families + Benign<br/>Macro-F1 0.724006"]
+    C --> D3["Supporting evidence<br/>RF / XGBoost comparisons<br/>McNemar + SHAP + ablations"]
+
+    D1 --> E["Initial cross-dataset question<br/>train on CICIoT2023<br/>test externally on CICIoMT2024"]
+    E --> P1["Protocol 1: 38-feature alignment<br/>controlled, consistent feature space<br/>FT external ROC-AUC 0.987292"]
+
+    P1 --> R2["Second-round review concern<br/>manual intersection is not universal generalization<br/>baselines and empirical depth were insufficient"]
+    R2 --> M["Added modern baselines<br/>MLP / TabNet / TabTransformer-style"]
+    R2 --> P2["Protocol 2: 92-dimensional feature union<br/>zero filling + missingness indicators<br/>FT external ROC-AUC 0.527226"]
+    R2 --> P3["Protocol 3: standardized NetFlow<br/>NF-ToN-IoT → NF-BoT-IoT<br/>10 common numerical features<br/>FT external ROC-AUC 0.785781"]
+
+    M --> R3["Third-round review concern<br/>integrate all protocols into methodology<br/>and test a training strategy for cross-domain robustness"]
+    P2 --> R3
+    P3 --> R3
+    R3 --> S34["Section 3.4<br/>unified motivations, assumptions,<br/>feature construction, and objectives"]
+    R3 --> CORAL["Section 3.5 + Table 13<br/>source supervision + unlabeled-target CORAL alignment"]
+    CORAL --> C1["CIC target ROC-AUC<br/>0.914362 → 0.989185"]
+    CORAL --> C2["NetFlow target ROC-AUC<br/>0.725706 → 0.777260"]
+
+    S34 --> F["Bounded final claim"]
+    C1 --> F
+    C2 --> F
+    F --> F1["FT-Transformer is a competitive and reproducible<br/>deep tabular baseline for IoT traffic"]
+    F --> F2["It is more stable in some controlled protocols<br/>but the 92-dimensional negative result rules out universality"]
+    F --> F3["Targeted representation alignment may help<br/>but CORAL remains preliminary historical evidence requiring revalidation"]
+```
+
+The key change in the paper's storyline is that it no longer claims an inherent universal cross-dataset capability. The three protocols instead expose the conditions under which FT-Transformer is stable and the conditions under which it fails. The third revision further argues that cross-domain robustness depends on the training objective and representation alignment, not only on the classifier architecture. Repository audits of the historical CORAL implementation, target-domain usage, and result comparability are documented in [docs/LIMITATIONS.md](docs/LIMITATIONS.md).
 
 ## Model
 
